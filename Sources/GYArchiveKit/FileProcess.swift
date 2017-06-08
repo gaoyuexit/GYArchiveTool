@@ -62,7 +62,31 @@ public struct File {
     public func buildNumberChange(_ c: Change) {
         guard let infoPath = infoPath else { return }
         guard let info = NSMutableDictionary(contentsOfFile: infoPath.string) else { return }
-        info["CFBundleVersion"] = (info["CFBundleVersion"] as! Int) + c.rawValue
+        let newbuild = Int(info["CFBundleVersion"] as! String)! + c.rawValue
+        info["CFBundleVersion"] = newbuild.description
         info.write(toFile: infoPath.string, atomically: true)
     }
 }
+
+
+struct Command {
+    
+    let p: Process
+
+    init(path: Path) {
+        p = Process()
+        p.launchPath = "/usr/bin/bash"
+        var args = [String]()
+        
+        
+        
+        p.arguments = args
+        print("p.args:\(args)")
+    }
+    
+}
+
+
+
+
+

@@ -33,7 +33,6 @@ class GYArchiveKitTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    // PDD测试的入口, 需要XCTest来启动
     func testGYArchiveKitSpecs() {
         specGYArchiveKit()
     }

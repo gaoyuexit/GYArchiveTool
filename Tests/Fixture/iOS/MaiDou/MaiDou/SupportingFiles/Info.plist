@@ -60,7 +60,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>50</string>
+	<integer>50</integer>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>wechat</string>
