@@ -1,10 +1,13 @@
 import Foundation
 import CommandLineKit
 import Rainbow
+import GYArchiveKit
+
 
 let cli = CommandLineKit.CommandLine()
 
 
+// 工程路径, 默认为当前文件夹
 let projectOption   = StringOption(shortFlag: "p",
                                     longFlag: "project",
                                  helpMessage: "Path to the project.")
@@ -65,20 +68,24 @@ if help.value {
     exit(EX_OK)
 }
 
-let project = projectOption.value ?? "."
-let log = logOption.value ?? ""
-let version = versionOption.value ?? "true"
-let upload = uploadOption.value ?? "true"
-let commit = commitOption.value ?? "true"
-let infoPath = infoPathOption.value ?? "\(project)"
-
-
-
 print("///////////////////////////////////////////////")
 print("//////                                   //////")
 print("//////               Hello               //////")
 print("//////                                   //////")
 print("///////////////////////////////////////////////")
+
+
+do {
+    let tool = try Archive(projectPath: projectOption.value, log: logOption.value, version: versionOption.value, upload: uploadOption.value, commit: commitOption.value, infoPath: infoPathOption.value)
+}catch {
+    
+}
+
+
+
+
+
+
 
 
 
