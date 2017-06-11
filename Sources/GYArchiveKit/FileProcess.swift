@@ -25,26 +25,31 @@ public struct FileProcess {
         case down = -1
     }
     
-    public let projectPath: Path
+    public let rootPath: Path
     public let resultPath: Path
     public let exportOptionsPlistPath: Path
     public let projectName: String
     public let infoPath: Path
+    public let archivePath: Path
     
-    public init(projectPathString: String, infoPath: String?) throws {
+    public init(rootPathString: String, infoPath: String?) throws {
         
-        self.projectPath = Path(projectPathString)
-        self.resultPath = projectPath.parent() + "docs" + "Result"
+        self.rootPath = Path(rootPathString)
+        self.resultPath = rootPath.parent() + "docs" + "Result"
         self.exportOptionsPlistPath = resultPath + "build.plist"
-        guard let projectName = FileProcess.getProjectName(projectPathString) else { throw FileError.noFindProject }
+        guard let projectName = FileProcess.getProjectName(rootPathString) else { throw FileError.noFindProject }
         self.projectName = projectName
+        
+        self.archivePath = resultPath + "/\(projectName).xcarchive"
         
         if let infoPath = infoPath {
             self.infoPath = Path(infoPath)
         }else {
-            guard let infoPath = FileProcess.getInfoPath(projectPathString, projectName: projectName) else { throw FileError.noFindInfoPlist }
+            guard let infoPath = FileProcess.getInfoPath(rootPathString, projectName: projectName) else { throw FileError.noFindInfoPlist }
             self.infoPath = infoPath
         }
+        
+        
     }
     
     /// 获取工程名

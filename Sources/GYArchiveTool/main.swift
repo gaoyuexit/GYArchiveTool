@@ -8,9 +8,9 @@ let cli = CommandLineKit.CommandLine()
 
 
 // 工程路径, 默认为当前文件夹
-let projectOption   = StringOption(shortFlag: "p",
-                                    longFlag: "project",
-                                 helpMessage: "Path to the project.")
+let rootPathOption   = StringOption(shortFlag: "r",
+                                    longFlag: "root",
+                                 helpMessage: "Path to the project dir")
 
 let logOption       = StringOption(shortFlag: "l",
                                     longFlag: "log",
@@ -38,7 +38,7 @@ let help            = BoolOption(shortFlag: "h",
                                  helpMessage: "Prints a help message.")
 
 
-cli.addOptions(projectOption, logOption, versionOption, uploadOption, commitOption, help)
+cli.addOptions(rootPathOption, logOption, versionOption, uploadOption, commitOption, help)
 
 // Rainbow:  highlight show
 cli.formatOutput = { s, type in
@@ -77,7 +77,7 @@ print("///////////////////////////////////////////////")
 let fileProcess: FileProcess
 
 do {
-    fileProcess = try FileProcess(projectPathString: projectOption.value ?? ".", infoPath: infoPathOption.value)
+    fileProcess = try FileProcess(rootPathString: rootPathOption.value ?? ".", infoPath: infoPathOption.value)
 }catch {
     guard let e = error as? FileError else {
         exit(EX_USAGE)
