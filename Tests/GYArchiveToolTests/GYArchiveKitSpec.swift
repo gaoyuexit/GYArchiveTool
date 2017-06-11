@@ -20,7 +20,7 @@ public func specGYArchiveKit() {
     describe("specGYArchiveKit") {
         $0.it("get projectName"){
             
-            let file = File(projectPathString: projectPath.string)
+            let file = try! FileProcess(projectPathString: projectPath.string, infoPath: nil)
 
             try expect(file.projectName) == "MaiDou"
             try expect(file.infoPath) == Path("\(projectPath.string)/MaiDou/MaiDou/SupportingFiles/Info.plist")
@@ -28,7 +28,7 @@ public func specGYArchiveKit() {
         
         $0.it("get infoNumber") {
             
-            let file = File(projectPathString: projectPath.string)
+            let file = try! FileProcess(projectPathString: projectPath.string, infoPath: nil)
     
             try expect(file.readInfo()?.versionNumber) == "1.2.1"
             try expect(file.readInfo()?.buildNumber) == "50"
@@ -36,8 +36,10 @@ public func specGYArchiveKit() {
         
         $0.it("config exportOptionsPlist") {
             
-            let tool = try? Archive(projectPath: projectPath.string, log: nil, version: nil, upload: nil, commit: nil, infoPath: nil)
-            tool?.execute()
+            let file = try! FileProcess(projectPathString: projectPath.string, infoPath: nil)
+            let tool = try! Archive(fileProcess: file, log: nil, version: nil, upload: nil, commit: nil)
+            
+            tool.execute()
         }
         
     }

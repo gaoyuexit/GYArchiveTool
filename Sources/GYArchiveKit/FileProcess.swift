@@ -9,7 +9,14 @@
 import Foundation
 import PathKit
 
-public struct File {
+public enum FileError: Error {
+    // 没有发现info.plist
+    case noFindInfoPlist
+    // 没有发现可执行的工程
+    case noFindProject
+}
+
+public struct FileProcess {
     
     public typealias InfoNumber = (versionNumber: String, buildNumber: String)
     
@@ -21,19 +28,27 @@ public struct File {
     public let projectPath: Path
     public let resultPath: Path
     public let exportOptionsPlistPath: Path
-    public var projectName: String?
-    public var infoPath: Path?
+    public let projectName: String
+    public let infoPath: Path
     
-    public init(projectPathString: String) {
+    public init(projectPathString: String, infoPath: String?) throws {
+        
         self.projectPath = Path(projectPathString)
         self.resultPath = projectPath.parent() + "docs" + "Result"
         self.exportOptionsPlistPath = resultPath + "build.plist"
-        projectName = projectName(projectPathString)
-        infoPath = infoPath(projectPathString)
+        guard let projectName = FileProcess.getProjectName(projectPathString) else { throw FileError.noFindProject }
+        self.projectName = projectName
+        
+        if let infoPath = infoPath {
+            self.infoPath = Path(infoPath)
+        }else {
+            guard let infoPath = FileProcess.getInfoPath(projectPathString, projectName: projectName) else { throw FileError.noFindInfoPlist }
+            self.infoPath = infoPath
+        }
     }
     
     /// 获取工程名
-    private func projectName(_ from: String) -> String? {
+    static func getProjectName(_ from: String) -> String? {
         guard let childPaths = try? Path(from).children() else { return nil }
         for childPath in childPaths {
             if childPath.isDirectory { continue }
@@ -46,21 +61,19 @@ public struct File {
         return nil
     }
     /// 获取info.plist
-    private func infoPath(_ from: String) -> Path? {
-        guard let projectName = projectName else { return nil }
+    static func getInfoPath(_ from: String, projectName: String) -> Path? {
         let path = "\(from)/\(projectName)/\(projectName)/SupportingFiles/Info.plist"
+        guard Path(path).exists else { return nil }
         return Path(path)
     }
     
     /// 读取info
     public func readInfo() -> InfoNumber? {
-        guard let infoPath = infoPath else { return nil }
         guard let info = NSDictionary(contentsOfFile: infoPath.string) else { return nil }
-        return (versionNumber: info["CFBundleShortVersionString"], buildNumber: info["CFBundleVersion"]) as? File.InfoNumber
+        return (versionNumber: info["CFBundleShortVersionString"], buildNumber: info["CFBundleVersion"]) as? FileProcess.InfoNumber
     }
     
     public func buildNumberChange(_ c: Change) {
-        guard let infoPath = infoPath else { return }
         guard let info = NSMutableDictionary(contentsOfFile: infoPath.string) else { return }
         let newbuild = Int(info["CFBundleVersion"] as! String)! + c.rawValue
         info["CFBundleVersion"] = newbuild.description

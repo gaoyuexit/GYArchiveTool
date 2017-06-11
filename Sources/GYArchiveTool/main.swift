@@ -74,9 +74,24 @@ print("//////               Hello               //////")
 print("//////                                   //////")
 print("///////////////////////////////////////////////")
 
+let fileProcess: FileProcess
 
 do {
-    let tool = try Archive(projectPath: projectOption.value, log: logOption.value, version: versionOption.value, upload: uploadOption.value, commit: commitOption.value, infoPath: infoPathOption.value)
+    fileProcess = try FileProcess(projectPathString: projectOption.value ?? ".", infoPath: infoPathOption.value)
+}catch {
+    guard let e = error as? FileError else {
+        exit(EX_USAGE)
+    }
+    switch e {
+    case .noFindInfoPlist: print("no find info plist")
+    case .noFindProject: print("no find project")
+    }
+    exit(EX_USAGE)
+}
+
+
+do {
+    let tool = try Archive(fileProcess: fileProcess, log: logOption.value, version: versionOption.value, upload: uploadOption.value, commit: commitOption.value)
 }catch {
     
 }
