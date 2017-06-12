@@ -32,7 +32,7 @@ public struct Archive {
         print("------------------ Working... ------------------".pass)
         showVersion()
         configExportOptionsPlist()
-        fileProcess.buildNumberChange(.up)
+        if version { fileProcess.buildNumberChange(.up) }
         command.archive()
         command.export()
         if upload { command.upload(log: log) }
