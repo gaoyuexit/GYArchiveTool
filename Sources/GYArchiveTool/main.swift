@@ -2,7 +2,7 @@ import Foundation
 import CommandLineKit
 import Rainbow
 import GYArchiveKit
-
+import PathKit
 
 let cli = CommandLineKit.CommandLine()
 
@@ -68,23 +68,34 @@ if help.value {
     exit(EX_OK)
 }
 
-print("///////////////////////////////////////////////")
-print("//////                                   //////")
-print("//////               Hello               //////")
-print("//////                                   //////")
-print("///////////////////////////////////////////////")
+print("_________")
+print("/         /.")
+print(".----------------       /_________/ |")
+print("/              / |      |         | |")
+print("/+============+\\ |      | |====|  | |")
+print("||C:\\>        || |      |         | |")
+print("|| welcome    || |      | |====|  | |")
+print("|| use        || |      |   ___   | |")
+print("|| archive    || |      |  |250|  | |")
+print("|| tool       ||/@@@    |   ---   | |")
+print("\\+============+/    @   |_________|./.")
+print("@          ..  ....'")
+print("..................@     __.'.'  ''")
+print("/oooooooooooooooo//     ///")
+print("/................//     /_/")
+print("------------------")
 
 let fileProcess: FileProcess
 
 do {
-    fileProcess = try FileProcess(rootPathString: rootPathOption.value ?? ".", infoPath: infoPathOption.value)
+    fileProcess = try FileProcess(rootPathString: rootPathOption.value ?? Path.current.string, infoPath: infoPathOption.value)
 }catch {
     guard let e = error as? FileError else {
         exit(EX_USAGE)
     }
     switch e {
-    case .noFindInfoPlist: print("no find info plist".error)
-    case .noFindProject: print("no find project".error)
+    case .noFindInfoPlist: print("------------------ no find info plist ------------------".error)
+    case .noFindProject: print("------------------ no find project ------------------".error)
     }
     exit(EX_USAGE)
 }

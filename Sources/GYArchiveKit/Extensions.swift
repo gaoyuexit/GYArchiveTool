@@ -34,6 +34,17 @@ public extension String {
     var pass: String { return self.green.bold }
 }
 
+public extension Process {
+    
+    func execute(args: [String]) {
+        arguments = args
+        launch()
+        print(("Excusing ->" + "\(args)" + "<- Commond\n").pass)
+        waitUntilExit()
+    }
+}
+
+
 
 
 

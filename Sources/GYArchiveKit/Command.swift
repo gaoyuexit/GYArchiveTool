@@ -17,11 +17,11 @@ public struct Command {
         self.fileProcess = fileProcess
     }
     
-    public func build() {
+    public func archive() {
+        print("------------------ Start Archive ---------------------\n".pass)
         let p = Process()
         p.launchPath = "/usr/bin/xcodebuild"
         var args = [String]()
-        args.append("xcodebuild")
         args.append("-workspace")
         args.append("\(fileProcess.workspacePath.string)")
         args.append("-scheme")
@@ -30,17 +30,14 @@ public struct Command {
         args.append("archive")
         args.append("-archivePath")
         args.append("\(fileProcess.archivePath.string)")
-        p.arguments = args
-        p.launch()
-        print("Excusing ->" + "\(args)" + "<- Commond\n".pass)
+        p.execute(args: args)
     }
     
-    public func archive() {
-        print("------------------Start Archive---------------------\n".pass)
+    public func export() {
+        print("------------------ Start Export ---------------------\n".pass)
         let p = Process()
         p.launchPath = "/usr/bin/xcodebuild"
         var args = [String]()
-        args.append("xcodebuild")
         args.append("-exportArchive")
         args.append("-archivePath")
         args.append("\(fileProcess.archivePath.string)")
@@ -48,9 +45,30 @@ public struct Command {
         args.append("\(fileProcess.resultPath.string)")
         args.append("-exportOptionsPlist")
         args.append("\(fileProcess.exportOptionsPlistPath.string)")
-        p.arguments = args
-        p.launch()
-        print("Excusing ->" + "\(args)" + "<- Commond\n".pass)
+        p.execute(args: args)
     }
     
+    public func upload(log: String) {
+        print("------------------ Start Upload to Fir ---------------------\n".pass)
+        let firPath = "/usr/local/bin/fir"
+        let p = Process()
+         p.launchPath = firPath
+        var args = [String]()
+        args.append("p")
+        args.append("\(fileProcess.ipaPath.string)")
+        args.append("-c")
+        args.append("\(log)")
+        p.execute(args: args)
+    }
+    
+    public func commit() {
+        guard let info = fileProcess.readInfo() else { return }
+        let p = Process()
+        p.launchPath = "/usr/bin/git"
+        var args = [String]()
+        args.append("commit")
+        args.append("-am")
+        args.append("New Packet: \(info.versionNumber) \(info.buildNumber)")
+        p.execute(args: args)
+    }
 }

@@ -15,20 +15,20 @@ import PathKit
 public func specGYArchiveKit() {
 
     let fixtures = Path(#file).parent().parent() + "Fixture"
-    let projectPath = fixtures + "iOS"
+    let rootPath = fixtures + "iOS"
     
     describe("specGYArchiveKit") {
         $0.it("get projectName"){
             
-            let file = try! FileProcess(rootPathString: projectPath.string, infoPath: nil)
+            let file = try! FileProcess(rootPathString: rootPath.string, infoPath: nil)
 
             try expect(file.projectName) == "MaiDou"
-            try expect(file.infoPath) == Path("\(projectPath.string)/MaiDou/MaiDou/SupportingFiles/Info.plist")
+            try expect(file.infoPath) == Path("\(rootPath.string)/MaiDou/MaiDou/SupportingFiles/Info.plist")
         }
         
         $0.it("get infoNumber") {
             
-            let file = try! FileProcess(rootPathString: projectPath.string, infoPath: nil)
+            let file = try! FileProcess(rootPathString: rootPath.string, infoPath: nil)
     
             try expect(file.readInfo()?.versionNumber) == "1.2.1"
             try expect(file.readInfo()?.buildNumber) == "50"
@@ -36,7 +36,7 @@ public func specGYArchiveKit() {
         
         $0.it("config exportOptionsPlist") {
             
-            let file = try! FileProcess(rootPathString: projectPath.string, infoPath: nil)
+            let file = try! FileProcess(rootPathString: rootPath.string, infoPath: nil)
             let tool = try! Archive(fileProcess: file, log: nil, version: nil, upload: nil, commit: nil)
             
             tool.execute()
