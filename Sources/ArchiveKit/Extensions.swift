@@ -8,9 +8,10 @@
 
 import Foundation
 import PathKit
+import Rainbow
 
 extension Path {
-    // 路径中文件/文件夹的大小
+    
     var size: Int {
         if isDirectory {
             let childrenPaths = try? children()
@@ -26,21 +27,25 @@ extension Path {
             }
         }
     }
-    /// 获取工程名
-    static func projectName(_ from: String) -> String? {
-        guard let childPaths = try? Path(from).children() else { return nil }
-        for childPath in childPaths {
-            if childPath.isDirectory { continue }
+}
 
-            if childPath.string.hasSuffix(".xcworkspace") {
-                return childPath.string.components(separatedBy: ".")[0]
-            }else if childPath.string.hasSuffix(".xcodeproj") {
-                return childPath.string.components(separatedBy: ".")[0]
-            }
-        }
-        return nil
+public extension String {
+    var error: String { return self.red.bold }
+    var pass: String { return self.green.bold }
+}
+
+public extension Process {
+    
+    func execute(args: [String]) {
+        arguments = args
+        launch()
+        print(("Excusing ->" + "\(args)" + "<- Commond\n").pass)
+        waitUntilExit()
     }
 }
+
+
+
 
 
 

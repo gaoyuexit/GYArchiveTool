@@ -8,9 +8,9 @@
 
 import XCTest
 
-@testable import GYArchiveKit
+@testable import ArchiveKit
 
-class GYArchiveKitTests: XCTestCase {
+class ArchiveKitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -33,8 +33,7 @@ class GYArchiveKitTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    // PDD测试的入口, 需要XCTest来启动
-    func testGYArchiveKitSpecs() {
-        specGYArchiveKit()
+    func testArchiveKitSpecs() {
+        specArchiveKit()
     }
 }

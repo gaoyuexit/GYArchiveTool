@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_53"
+               BlueprintIdentifier = "OBJ_56"
                BuildableName = "CommandLineKit.framework"
                BlueprintName = "CommandLineKit"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_62"
+               BlueprintIdentifier = "OBJ_65"
                BuildableName = "Rainbow.framework"
                BlueprintName = "Rainbow"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
@@ -42,7 +42,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_79"
+               BlueprintIdentifier = "OBJ_82"
                BuildableName = "Spectre.framework"
                BlueprintName = "Spectre"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
@@ -56,7 +56,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_93"
+               BlueprintIdentifier = "OBJ_96"
                BuildableName = "PathKit.framework"
                BlueprintName = "PathKit"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
@@ -70,9 +70,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_102"
-               BuildableName = "GYArchiveKit.framework"
-               BlueprintName = "GYArchiveKit"
+               BlueprintIdentifier = "OBJ_105"
+               BuildableName = "ArchiveTool"
+               BlueprintName = "ArchiveTool"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -84,9 +84,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_118"
-               BuildableName = "GYArchiveTool"
-               BlueprintName = "GYArchiveTool"
+               BlueprintIdentifier = "OBJ_122"
+               BuildableName = "ArchiveKit.framework"
+               BlueprintName = "ArchiveKit"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -102,9 +102,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_133"
-               BuildableName = "GYArchiveToolTests.xctest"
-               BlueprintName = "GYArchiveToolTests"
+               BlueprintIdentifier = "OBJ_140"
+               BuildableName = "ArchiveToolTests.xctest"
+               BlueprintName = "ArchiveToolTests"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -125,7 +125,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_53"
+            BlueprintIdentifier = "OBJ_56"
             BuildableName = "CommandLineKit.framework"
             BlueprintName = "CommandLineKit"
             ReferencedContainer = "container:GYArchiveTool.xcodeproj">
