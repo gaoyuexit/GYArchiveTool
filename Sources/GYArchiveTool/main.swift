@@ -83,8 +83,8 @@ do {
         exit(EX_USAGE)
     }
     switch e {
-    case .noFindInfoPlist: print("no find info plist")
-    case .noFindProject: print("no find project")
+    case .noFindInfoPlist: print("no find info plist".error)
+    case .noFindProject: print("no find project".error)
     }
     exit(EX_USAGE)
 }
@@ -92,9 +92,12 @@ do {
 
 do {
     let tool = try Archive(fileProcess: fileProcess, log: logOption.value, version: versionOption.value, upload: uploadOption.value, commit: commitOption.value)
+    tool.execute()
 }catch {
     
 }
+
+
 
 
 

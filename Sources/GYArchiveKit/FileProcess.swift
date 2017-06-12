@@ -31,6 +31,9 @@ public struct FileProcess {
     public let projectName: String
     public let infoPath: Path
     public let archivePath: Path
+    public let workspacePath: Path
+    public let ipaPath: Path
+    
     
     public init(rootPathString: String, infoPath: String?) throws {
         
@@ -40,7 +43,9 @@ public struct FileProcess {
         guard let projectName = FileProcess.getProjectName(rootPathString) else { throw FileError.noFindProject }
         self.projectName = projectName
         
-        self.archivePath = resultPath + "/\(projectName).xcarchive"
+        self.archivePath = resultPath + "\(projectName).xcarchive"
+        self.ipaPath = resultPath + "\(projectName).ipa"
+        self.workspacePath = rootPath + "\(projectName).xcworkspace"
         
         if let infoPath = infoPath {
             self.infoPath = Path(infoPath)
@@ -56,7 +61,6 @@ public struct FileProcess {
     static func getProjectName(_ from: String) -> String? {
         guard let childPaths = try? Path(from).children() else { return nil }
         for childPath in childPaths {
-            if childPath.isDirectory { continue }
             if childPath.string.hasSuffix(".xcworkspace") {
                 return childPath.lastComponentWithoutExtension
             }else if childPath.string.hasSuffix(".xcodeproj") {
@@ -83,26 +87,11 @@ public struct FileProcess {
         let newbuild = Int(info["CFBundleVersion"] as! String)! + c.rawValue
         info["CFBundleVersion"] = newbuild.description
         info.write(toFile: infoPath.string, atomically: true)
+        print("-------- Update buildNumber to \(newbuild) -------------".pass)
     }
 }
 
 
-struct Command {
-    
-    let p: Process
-
-    init(path: Path) {
-        p = Process()
-        p.launchPath = "/usr/bin/bash"
-        var args = [String]()
-        
-        
-        
-        p.arguments = args
-        print("p.args:\(args)")
-    }
-    
-}
 
 
 

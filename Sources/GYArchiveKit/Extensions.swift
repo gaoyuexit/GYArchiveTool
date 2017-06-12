@@ -29,7 +29,7 @@ extension Path {
     }
 }
 
-extension String {
+public extension String {
     var error: String { return self.red.bold }
     var pass: String { return self.green.bold }
 }

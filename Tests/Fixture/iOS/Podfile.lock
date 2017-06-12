@@ -1,0 +1,170 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Alamofire (4.2.0)
+  - BPushSDK (1.4.5):
+    - BPushSDK/normal (= 1.4.5)
+  - BPushSDK/normal (1.4.5)
+  - HappyDNS (0.3.10)
+  - ImagePicker (2.0.0)
+  - KeychainAccess (3.0.1)
+  - Kingfisher (3.1.4)
+  - LPDebug (0.1.0)
+  - LPExtensions (0.0.1):
+    - LPExtensions/String (= 0.0.1)
+    - LPExtensions/UINavigationBar (= 0.0.1)
+  - LPExtensions/String (0.0.1)
+  - LPExtensions/UINavigationBar (0.0.1)
+  - LPFramework (0.1.0):
+    - LPFramework/CellAnimator (= 0.1.0)
+    - LPFramework/EmptyView (= 0.1.0)
+    - LPFramework/Inpurchase (= 0.1.0)
+    - LPFramework/PlaceholderTextView (= 0.1.0)
+    - LPFramework/TimerButton (= 0.1.0)
+    - LPFramework/UserManager (= 0.1.0)
+  - LPFramework/CellAnimator (0.1.0)
+  - LPFramework/EmptyView (0.1.0)
+  - LPFramework/Inpurchase (0.1.0)
+  - LPFramework/PickerController (0.1.0):
+    - SwiftyJSON (~> 3.1.1)
+  - LPFramework/PlaceholderTextView (0.1.0)
+  - LPFramework/TimerButton (0.1.0)
+  - LPFramework/UserManager (0.1.0)
+  - LPNetworkManager (2.0.0):
+    - Alamofire (~> 4.2.0)
+    - SwiftyJSON (~> 3.1.1)
+  - LPTransitions (0.1.0)
+  - MJRefresh (3.1.12)
+  - Qiniu (7.1.5):
+    - AFNetworking (~> 3)
+    - HappyDNS (~> 0.3)
+  - QuickForm (0.1.0):
+    - Kingfisher (~> 3.1.4)
+  - SDCAlertView (7.1.1)
+  - SKPhotoBrowser (3.1.4)
+  - SnapKit (3.0.2)
+  - SwiftyJSON (3.1.4)
+  - Toast-Swift (2.0.0)
+  - UMengUShare/Core (6.3.0):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.3.0)
+  - UMengUShare/Social/QQ (6.3.0):
+    - UMengUShare/Core
+  - UMengUShare/Social/Sina (6.3.0):
+    - UMengUShare/Core
+  - UMengUShare/Social/WeChat (6.3.0):
+    - UMengUShare/Core
+  - XLActionController (3.0.1):
+    - XLActionController/Core (= 3.0.1)
+  - XLActionController/Core (3.0.1)
+
+DEPENDENCIES:
+  - BPushSDK (= 1.4.5)
+  - ImagePicker (~> 2.0.0)
+  - KeychainAccess
+  - Kingfisher (~> 3.1.4)
+  - LPDebug (from `git@bitbucket.org:loopeer/lpdebug.git`, commit `c70c0c5`)
+  - LPExtensions (from `git@bitbucket.org:loopeer/lpextensions.git`, commit `b8ebda3`)
+  - LPFramework (from `git@bitbucket.org:loopeer/lpframework.git`, commit `2d511c1`)
+  - LPFramework/PickerController (from `git@bitbucket.org:loopeer/lpframework.git`, commit `2d511c1`)
+  - LPNetworkManager (from `git@bitbucket.org:loopeer/lpnetworkmanager.git`, commit `b60dbda`)
+  - LPTransitions (from `git@bitbucket.org:loopeer/lptransitions.git`, commit `c580535`)
+  - MJRefresh
+  - Qiniu
+  - QuickForm (from `git@bitbucket.org:loopeer/quickform.git`, commit `29371e7`)
+  - SDCAlertView (~> 7.1)
+  - SKPhotoBrowser (from `https://github.com/suzuki-0000/SKPhotoBrowser.git`, branch `swift3`)
+  - SnapKit (~> 3.0.2)
+  - SwiftyJSON (~> 3.1.1)
+  - Toast-Swift (= 2.0.0)
+  - UMengUShare/Social/QQ
+  - UMengUShare/Social/Sina
+  - UMengUShare/Social/WeChat
+  - XLActionController
+
+EXTERNAL SOURCES:
+  LPDebug:
+    :commit: c70c0c5
+    :git: git@bitbucket.org:loopeer/lpdebug.git
+  LPExtensions:
+    :commit: b8ebda3
+    :git: git@bitbucket.org:loopeer/lpextensions.git
+  LPFramework:
+    :commit: 2d511c1
+    :git: git@bitbucket.org:loopeer/lpframework.git
+  LPNetworkManager:
+    :commit: b60dbda
+    :git: git@bitbucket.org:loopeer/lpnetworkmanager.git
+  LPTransitions:
+    :commit: c580535
+    :git: git@bitbucket.org:loopeer/lptransitions.git
+  QuickForm:
+    :commit: 29371e7
+    :git: git@bitbucket.org:loopeer/quickform.git
+  SKPhotoBrowser:
+    :branch: swift3
+    :git: https://github.com/suzuki-0000/SKPhotoBrowser.git
+
+CHECKOUT OPTIONS:
+  LPDebug:
+    :commit: c70c0c5
+    :git: git@bitbucket.org:loopeer/lpdebug.git
+  LPExtensions:
+    :commit: b8ebda3
+    :git: git@bitbucket.org:loopeer/lpextensions.git
+  LPFramework:
+    :commit: 2d511c1
+    :git: git@bitbucket.org:loopeer/lpframework.git
+  LPNetworkManager:
+    :commit: b60dbda
+    :git: git@bitbucket.org:loopeer/lpnetworkmanager.git
+  LPTransitions:
+    :commit: c580535
+    :git: git@bitbucket.org:loopeer/lptransitions.git
+  QuickForm:
+    :commit: 29371e7
+    :git: git@bitbucket.org:loopeer/quickform.git
+  SKPhotoBrowser:
+    :commit: c575b55599976b86646a08c7e9aa8569e66ff72c
+    :git: https://github.com/suzuki-0000/SKPhotoBrowser.git
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  BPushSDK: 81453a059604fa3c1ef1c683efab9d593e22a338
+  HappyDNS: 06a9fed2796663fd87626dbf02552933265bf059
+  ImagePicker: 81175d36c2852cb543cb4f5d6c19e28f3e8d90eb
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
+  Kingfisher: 6c67e3e57f2d81a9cfdfa25052cd86f33ceac9bb
+  LPDebug: 44e75dd88a643a419e117103137ed7de878a3fc0
+  LPExtensions: de336d08b3b57b638fba837eb75f654ab936f11d
+  LPFramework: 54af4d9168dc9b1d29a0e39d623d8705f33945cd
+  LPNetworkManager: 416394deb59a58ee8bb97a35c86c59e27341c418
+  LPTransitions: a91ea07b4664d1f6ef8533976ffd5f543664cbe7
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  Qiniu: 77a3dba411556a383d72d17e842345a9d4c83252
+  QuickForm: 8c81b4b5dbac6e267d71331fd0deba827e655998
+  SDCAlertView: 4798cda4a480f90b24313d3cb07640243943d129
+  SKPhotoBrowser: 14b08bef65c1720f6edc728ab7f2b1f8ca76f453
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
+  UMengUShare: b208ac3bcf1f63d11a100b359990e9d77a0f2085
+  XLActionController: 57fe0ce1642e2eed971b188b490762345fdbf963
+
+PODFILE CHECKSUM: b6397681b61ee4a6ae7b1fd1cd6f2ae6455a1a56
+
+COCOAPODS: 1.2.1

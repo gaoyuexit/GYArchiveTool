@@ -18,9 +18,11 @@ public struct Archive {
     public let upload: Bool
     public let commit: Bool
     public let fileProcess: FileProcess
+    public let command: Command
     
     public init(fileProcess: FileProcess, log: String?, version: String?, upload: String?, commit: String?) throws {
         self.fileProcess = fileProcess
+        self.command = Command(fileProcess: fileProcess)
         self.log = (log ?? "true") == "true" ? true : false
         self.version = (version ?? "true") == "true" ? true : false
         self.upload = (upload ?? "true") == "true" ? true : false
@@ -33,7 +35,8 @@ public struct Archive {
         showVersion()
         configExportOptionsPlist()
         fileProcess.buildNumberChange(.up)
-        
+        command.build()
+        command.archive()
     }
 
     private func showVersion() {
@@ -51,7 +54,7 @@ public struct Archive {
         let p = NSMutableDictionary()
         p["method"] = "ad-hoc"
         p.write(toFile: fileProcess.exportOptionsPlistPath.string, atomically: true)
-        print("configExportOptionsPlist success".pass)
+        print("--------- creat configExportOptionsPlist success -----------".pass)
     }
 }
 
