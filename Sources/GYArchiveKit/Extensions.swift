@@ -11,7 +11,7 @@ import PathKit
 import Rainbow
 
 extension Path {
-    // 路径中文件/文件夹的大小
+    
     var size: Int {
         if isDirectory {
             let childrenPaths = try? children()

@@ -46,6 +46,8 @@ public struct Command {
         args.append("-exportOptionsPlist")
         args.append("\(fileProcess.exportOptionsPlistPath.string)")
         p.execute(args: args)
+        let size = Double(fileProcess.ipaPath.size) / 1000 / 1000
+        print("------------------ export ipa size: \(String(format: "%.1f M", size)) ---------------------\n".pass)
     }
     
     public func upload(log: String) {
