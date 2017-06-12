@@ -36,6 +36,7 @@ public struct Archive {
         command.archive()
         command.export()
         if upload { command.upload(log: log) }
+        if commit { command.commit(); command.push() }
     }
 
     private func showVersion() {
@@ -44,7 +45,6 @@ public struct Archive {
             return
         }
         print("------------------ current version number is \(info.versionNumber)  build number is \(info.buildNumber) ------------------".pass)
-
     }
 
     private func configExportOptionsPlist() {

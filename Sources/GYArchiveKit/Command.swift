@@ -73,4 +73,11 @@ public struct Command {
         args.append("New Packet: \(info.versionNumber) \(info.buildNumber)")
         p.execute(args: args)
     }
+    public func push() {
+        let p = Process()
+        p.launchPath = "/usr/bin/git"
+        var args = [String]()
+        args.append("push")
+        p.execute(args: args)
+    }
 }
