@@ -6,8 +6,8 @@ let package = Package(
     name: "GYArchiveTool",
     
     targets: [
-        Target(name: "GYArchiveKit", dependencies: []),
-        Target(name: "GYArchiveTool", dependencies: ["GYArchiveKit"])
+        Target(name: "ArchiveKit", dependencies: []),
+        Target(name: "ArchiveTool", dependencies: ["ArchiveKit"])
     ],
     dependencies: [
         .Package(url: "https://github.com/jatoben/CommandLine","3.0.0-pre1"),

@@ -71,8 +71,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "OBJ_105"
-               BuildableName = "GYArchiveKit.framework"
-               BlueprintName = "GYArchiveKit"
+               BuildableName = "ArchiveTool"
+               BlueprintName = "ArchiveTool"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -84,9 +84,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_123"
-               BuildableName = "GYArchiveTool"
-               BlueprintName = "GYArchiveTool"
+               BlueprintIdentifier = "OBJ_122"
+               BuildableName = "ArchiveKit.framework"
+               BlueprintName = "ArchiveKit"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -103,8 +103,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "OBJ_140"
-               BuildableName = "GYArchiveToolTests.xctest"
-               BlueprintName = "GYArchiveToolTests"
+               BuildableName = "ArchiveToolTests.xctest"
+               BlueprintName = "ArchiveToolTests"
                ReferencedContainer = "container:GYArchiveTool.xcodeproj">
             </BuildableReference>
          </TestableReference>
