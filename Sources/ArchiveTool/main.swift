@@ -16,17 +16,17 @@ let logOption       = StringOption(shortFlag: "l",
                                     longFlag: "log",
                                     helpMessage: "ChangeLog for fir")
 
-let versionOption   = StringOption(shortFlag: "v",
-                                 longFlag: "version",
-                                 helpMessage: "Is Auto Change Version")
+let versionOption   = BoolOption(shortFlag: "no-v",
+                                 longFlag: "no-version",
+                                 helpMessage: "Not Auto Change Version")
 
-let uploadOption    = StringOption(shortFlag: "u",
-                                 longFlag: "upload",
-                                 helpMessage: "Upload to fir")
+let uploadOption    = BoolOption(shortFlag: "no-u",
+                                 longFlag: "no-upload",
+                                 helpMessage: "Not Upload to fir")
 
-let commitOption    = StringOption(shortFlag: "c",
-                                 longFlag: "commit",
-                                 helpMessage: "Auto Git Commit to log this Archive")
+let commitOption    = BoolOption(shortFlag: "no-c",
+                                 longFlag: "no-commit",
+                                 helpMessage: "Not Git Commit to log this Archive")
 
 let infoPathOption  = StringOption(shortFlag: "i",
                                    longFlag: "info",
@@ -38,7 +38,7 @@ let help            = BoolOption(shortFlag: "h",
                                  helpMessage: "Prints a help message.")
 
 
-cli.addOptions(rootPathOption, logOption, versionOption, uploadOption, commitOption, help)
+cli.addOptions(rootPathOption, logOption, versionOption, uploadOption, commitOption, infoPathOption, help)
 
 // Rainbow:  highlight show
 cli.formatOutput = { s, type in
