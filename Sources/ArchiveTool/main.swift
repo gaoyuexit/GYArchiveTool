@@ -94,8 +94,8 @@ do {
         exit(EX_USAGE)
     }
     switch e {
-    case .noFindInfoPlist: print("------------------ no find info plist ------------------".error)
-    case .noFindProject: print("------------------ no find project ------------------".error)
+    case .noFindInfoPlist: print("no find info plist".tip.error)
+    case .noFindProject: print("no find project".tip.error)
     }
     exit(EX_USAGE)
 }
