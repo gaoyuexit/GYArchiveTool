@@ -18,7 +18,7 @@ public struct Command {
     }
     
     public func archive() {
-        print("------------------ Start Archive ---------------------\n".pass)
+        print("Start Archive\n".tip.pass)
         let p = Process()
         p.launchPath = "/usr/bin/xcodebuild"
         var args = [String]()
@@ -34,7 +34,7 @@ public struct Command {
     }
     
     public func export() {
-        print("------------------ Start Export ---------------------\n".pass)
+        print("Start Export\n".tip.pass)
         let p = Process()
         p.launchPath = "/usr/bin/xcodebuild"
         var args = [String]()
@@ -47,11 +47,11 @@ public struct Command {
         args.append("\(fileProcess.exportOptionsPlistPath.string)")
         p.execute(args: args)
         let size = Double(fileProcess.ipaPath.size) / 1000 / 1000
-        print("------------------ export ipa size: \(String(format: "%.1f M", size)) ---------------------\n".pass)
+        print("export ipa size: \(String(format: "%.1f M", size))\n".tip.pass)
     }
     
     public func upload(log: String) {
-        print("------------------ Start Upload to Fir ---------------------\n".pass)
+        print("Start Upload to Fir\n".tip.pass)
         let firPath = "/usr/local/bin/fir"
         let p = Process()
          p.launchPath = firPath

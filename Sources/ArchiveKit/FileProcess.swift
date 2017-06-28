@@ -87,7 +87,7 @@ public struct FileProcess {
         let newbuild = Int(info["CFBundleVersion"] as! String)! + c.rawValue
         info["CFBundleVersion"] = newbuild.description
         info.write(toFile: infoPath.string, atomically: true)
-        print("------------------ Update buildNumber to \(newbuild) ------------------".pass)
+        print("Update buildNumber to \(newbuild)".tip.pass)
     }
 }
 

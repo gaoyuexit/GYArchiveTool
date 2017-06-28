@@ -19,17 +19,17 @@ public struct Archive {
     public let fileProcess: FileProcess
     public let command: Command
     
-    public init(fileProcess: FileProcess, log: String?, version: String?, upload: String?, commit: String?) throws {
+    public init(fileProcess: FileProcess, log: String?, version: Bool, upload: Bool, commit: Bool) throws {
         self.fileProcess = fileProcess
         self.command = Command(fileProcess: fileProcess)
         self.log = log ?? ""
-        self.version = (version ?? "true") == "true" ? true : false
-        self.upload = (upload ?? "true") == "true" ? true : false
-        self.commit = (commit ?? "true") == "true" ? true : false
+        self.version = !version
+        self.upload = !upload
+        self.commit = !commit
     }
     
     public func execute() {
-        print("------------------ Working... ------------------".pass)
+        print("Working...".tip.pass)
         showVersion()
         configExportOptionsPlist()
         if version { fileProcess.buildNumberChange(.up) }
@@ -41,10 +41,10 @@ public struct Archive {
 
     private func showVersion() {
         guard let info = fileProcess.readInfo() else {
-            print("------------------ read info.plist version number error ------------------".error)
+            print("read info.plist version number error".tip.error)
             return
         }
-        print("------------------ current version number is \(info.versionNumber)  build number is \(info.buildNumber) ------------------".pass)
+        print("current version number is \(info.versionNumber)  build number is \(info.buildNumber)".tip.pass)
     }
 
     private func configExportOptionsPlist() {
@@ -53,7 +53,7 @@ public struct Archive {
         let p = NSMutableDictionary()
         p["method"] = "ad-hoc"
         p.write(toFile: fileProcess.exportOptionsPlistPath.string, atomically: true)
-        print("------------------ creat configExportOptionsPlist success ------------------".pass)
+        print("creat configExportOptionsPlist success".tip.pass)
     }
 }
 
